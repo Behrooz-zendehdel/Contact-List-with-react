@@ -4,7 +4,6 @@
   align-items: center;
 }
 .item {
-  width: 20rem;
   background-color: #fff;
   display: flex;
   justify-content: space-between;
@@ -13,6 +12,7 @@
   padding: 6px;
   border-radius: 3px;
   margin-top: 20px;
+  min-width: 20rem;
 }
 .item button {
   outline: none;
@@ -36,4 +36,15 @@
   color: #fff;
   background-color: #7c3aed;
   border-radius: 3px;
+}
+.listHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.listWrapper {
+  display: flex;
+  justify-content: center;
 }

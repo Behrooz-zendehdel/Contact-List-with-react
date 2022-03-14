@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import "./App.css";
 import AddContact from "./components/AddContact/AddContact";
+import ContactDetail from "./components/ContactList/ContactDetail/ContactDetail";
 import ContactList from "./components/ContactList/ContactList";
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
       <h1>Contact App</h1>
 
       <Switch>
+        <Route
+          path="/user/:id"
+          component={ContactDetail} />
         <Route
           path="/add"
           render={(props) => (
