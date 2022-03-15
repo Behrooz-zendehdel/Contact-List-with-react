@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
@@ -20,14 +21,24 @@ function App() {
     const filteredContacts = contacts.filter((c) => c.id !== id);
     setContacts(filteredContacts);
   };
+
   useEffect(() => {
-    const saveContacts = JSON.parse(localStorage.getItem("contacts"));
-    if (saveContacts) setContacts(saveContacts);
+
+    const getContacts = async () => {
+      const { data } = await axios.get("http://localhost:3001/contacts");
+      setContacts(data);
+    }
+    getContacts();
   }, []);
+
+
 
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
+
+
+
 
   return (
     <main className="App">
